@@ -7,7 +7,8 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts"
+    "src/polyfills.ts",
+    "src/gameScript/tankFighter/utils/NumberUtil.ts"
   ],
   "include": [
     "src/**/*.d.ts"
