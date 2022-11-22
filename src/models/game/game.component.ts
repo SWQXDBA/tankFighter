@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import {Game} from "../gameScript/tankFighter/core/Game";
+import {Component} from "@angular/core";
+import {Game} from "../../gameScript/tankFighter/core/Game";
+
+
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.css']
 })
-export class AppComponent {
+export class GameComponent {
   changeXY = (x:number,y:number,x2:number,y2:number)=>{
     if(x!=this.blockX){
       this.blockX = x;
@@ -26,7 +28,7 @@ export class AppComponent {
   }
 
   constructor() {
-    new Game('',this.changeXY).start()
+
   }
   blockX = 0
   blockY = 0

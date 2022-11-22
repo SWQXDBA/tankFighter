@@ -3,10 +3,12 @@ import {Position} from "./Position";
 import {Orientation} from "./Orientation";
 import {NumberUtil} from "../../utils/NumberUtil";
 import {Game} from "../../core/Game";
+import {PlayerOption} from "../../core/options/PlayerOption";
 
 export class EntityCollection{
 
   game:Game
+  tanks:Array<Tank> = new Array<Tank>()
 
   constructor(game:Game) {
     this.tanks.push(new Tank(new Position(0,0),new Orientation(0),100,0,game))
@@ -20,7 +22,16 @@ export class EntityCollection{
         tank.update()
       })
     }
+  /**
+   * 更新玩家的操作
+   */
+  updateEntitiesControl(options: Map<number, PlayerOption>){
+    this.tanks.forEach((tank)=>{
+      const playerOption = options.get(tank.ownerId);
+      tank.playerKeyBoardState = playerOption!.keyBoardState
 
+    })
+  }
     /**
      * 更新一次绘制属性 让绘制属性追上逻辑属性
      */
@@ -38,5 +49,5 @@ export class EntityCollection{
 
       })
     }
-    tanks:Array<Tank> = new Array<Tank>()
+
 }

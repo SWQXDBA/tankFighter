@@ -45,6 +45,7 @@ export class Tank extends AbstractEntity {
   playerKeyBoardState:KeyBoardState = new KeyBoardState()
 
   game:Game
+
   constructor(logicPosition: Position, logicOrientation: Orientation, hp: number, ownerId: number,game:Game) {
     super(logicPosition, logicOrientation);
     this.hp = hp;
